@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>查询结果</title>
+    <style>
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h2 {
+        margin-top: 0;
+        text-align: center;
+    }
+
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
+    #back-btn {
+        background-color: #f2f2f2;
+        border: none;
+        color: #333;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    #back-btn:hover {
+        background-color: #ddd;
+    }
+
+    </style>
+</head>
+<body>
+    <h2>查询结果</h2>
+    <table>
+        <tr>
+            <th>工号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>出生日期</th>
+            <th>户籍地址</th>
+            <th>当前住址</th>
+        </tr>
+        {% for person in results %}
+        <tr>
+            <td>{{ person.id }}</td>
+            <td>{{ person.name }}</td>
+            <td>{{ person.age }}</td>
+            <td>{{ person.birthday }}</td>
+            <td>{{ person.origin_home }}</td>
+            <td>{{ person.current_home }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button id="back-btn" onclick="goBack()">返回</button>
+    <script>
+        function goBack() {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+
+</html>
